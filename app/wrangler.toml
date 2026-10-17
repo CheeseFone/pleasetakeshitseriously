@@ -9,3 +9,11 @@ compatibility_flags = ["nodejs_compat"]
 # Optional plain variables:
 #   OPENAI_MODEL     default gpt-6-luna
 #   SEED_TOKEN       if set, POST /api/admin/seed requires header  x-seed-token: <value>
+
+# Demo-grade settings, deliberately in the repo. Cloudflare Pages reads these for git deploys
+# (and `wrangler pages dev` locally). Real secrets (DATABASE_URL, OPENAI_API_KEY) stay in the
+# dashboard / .dev.vars.
+[vars]
+SITE_PASSWORD = "shit"   # browser asks for it on every page; any username
+SEED_TOKEN = "shit"      # Settings -> Load demo residents asks for it
+OPENAI_MODEL = "gpt-6-luna"

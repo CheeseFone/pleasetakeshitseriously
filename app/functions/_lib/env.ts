@@ -4,6 +4,7 @@ export interface Env {
   OPENAI_MODEL?: string
   OPENAI_REASONING_EFFORT?: string
   SEED_TOKEN?: string
+  SITE_PASSWORD?: string
 }
 export type Ctx<P extends string = string> = EventContext<Env, P, unknown>
 

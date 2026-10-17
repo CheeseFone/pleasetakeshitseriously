@@ -47,7 +47,9 @@ For UI iteration: terminal 1 `npm run api` (serves the last build + functions on
    - `OPENAI_API_KEY` (secret)
    - `OPENAI_MODEL` (optional, default `gpt-6-luna`; `gpt-5.4-mini` and `gpt-5-nano` also work)
    - `OPENAI_REASONING_EFFORT` (optional: `low` default, `none` to omit the reasoning parameter)
-   - `SEED_TOKEN` (optional) — protects `POST /api/admin/seed`
+   - `SITE_PASSWORD`, `SEED_TOKEN`, `OPENAI_MODEL` are already set in `wrangler.toml` (both passwords are
+     `shit`, any username). Pages reads them from the file, so don't add them in the dashboard. The site
+     password is browser Basic auth and free; delete the line and redeploy to open the site up.
 4. Deploy, open `/settings`, load the demo residents.
 
 Limits that matter: Pages serves files up to 25 MB (the models are 11 MB each, the wasm runtime 14 MB);

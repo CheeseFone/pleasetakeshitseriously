@@ -1,3 +1,4 @@
 DATABASE_URL=postgres://tsdbadmin:PASSWORD@HOST:PORT/tsdb?sslmode=require
 OPENAI_API_KEY=sk-...
 OPENAI_MODEL=gpt-6-luna
+# SITE_PASSWORD=choose-something   # optional: password-protect the whole site
