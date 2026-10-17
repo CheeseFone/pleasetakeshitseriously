@@ -1,5 +1,11 @@
 # Take Shit Seriously — bowel-health early warning for care teams
 
+> **The pitch.** In long-term care, a bowel problem is usually the first sign that something is wrong, and the last
+> thing anyone charts properly. A CNA snaps a photo on the unit iPad; a model on the device scores it on the Bristol
+> scale and the photo never leaves the room. The app lines the log up against the resident's meds, diagnoses and
+> menu, explains the patterns that make sense (opioids plus low fibre, loose stools on an antibiotic) and flags the
+> ones that don't, so a nurse investigates on day two instead of admitting for dehydration on day six.
+
 Hackathon project (yes, the name is a pun): help nurses, CNAs and wellness staff in long-term care notice a bowel problem
 days before it becomes a fall, a dehydration admission or a C. difficile outbreak.
 
@@ -109,3 +115,24 @@ real-world score. To ship a new model, give it a new file name in `app/public/mo
 - Records: text is sent to OpenAI for structuring and stored in the database; chart *photos* are sent
   to OpenAI vision but not stored (only the transcription/extraction is).
 - Not a medical device. Decision support only; the disclaimer is shown in the app footer and settings.
+
+## Technology used
+
+**Frontend (app/src)**
+- React 19 + TypeScript, Vite 8, Tailwind CSS 4, React Router 7
+- onnxruntime-web (WebAssembly) to run the YOLO26n-seg models in the browser
+- pdf.js (`pdfjs-dist`) to read chart PDFs on the device; `exifr` to pull capture dates from photo EXIF
+- Recharts for the trend charts; IndexedDB for on-device thumbnails
+
+**Backend (app/functions)**
+- Cloudflare Pages + Pages Functions (Workers runtime), deployed and run locally with Wrangler
+- Tiger Cloud (managed TimescaleDB / PostgreSQL) via `postgres` (postgres.js): hypertable + `time_bucket` rollups
+- OpenAI API with strict structured outputs (`gpt-6-luna` by default, env `OPENAI_MODEL`): record extraction, vision transcription, record analysis
+- Deterministic rules engine in TypeScript (`app/shared/rules.ts`), shared between server and client
+
+**Models and training (models/, training/)**
+- Ultralytics YOLO26n-seg, trained on Google Colab (A100 / L4 / T4) and exported to ONNX
+- Roboflow Universe datasets ("stool classification" by smartgut, CC BY 4.0; Bristol-Stool-Boost), COCO -> YOLO-seg converter and v3-based pseudo-labelling in Python (NumPy, Pillow)
+
+**Demo data (demo/)**
+- Five synthetic residents with records; Python (`piexif`, Pillow) re-dates the demo photos' EXIF to end today
