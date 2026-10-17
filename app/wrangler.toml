@@ -1,0 +1,11 @@
+name = "take-shit-seriously"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Secrets (set in Cloudflare Pages -> Settings -> Variables and Secrets, or in .dev.vars locally):
+#   DATABASE_URL     postgres://...tsdb.cloud.timescale.com:PORT/tsdb?sslmode=require
+#   OPENAI_API_KEY   sk-...
+# Optional plain variables:
+#   OPENAI_MODEL     default gpt-6-luna
+#   SEED_TOKEN       if set, POST /api/admin/seed requires header  x-seed-token: <value>

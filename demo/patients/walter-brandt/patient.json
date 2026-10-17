@@ -1,0 +1,70 @@
+{
+  "id": "walter-brandt",
+  "name": "Walter Brandt",
+  "room": "204-B",
+  "dob": "1947-08-22",
+  "sex": "M",
+  "summary": "79 y, T2DM on metformin, CKD 3a, BPH. On amoxicillin-clavulanate for UTI since Oct 12. Usually one formed stool daily.",
+  "scenario": "Loose stools EXPECTED: started on an antibiotic 5 days ago. Seeded entries are all normal; upload photos/ (days -3 to 0, types 6-7) and the app should flag loose stools but explain them by the antibiotic, with C. diff / dehydration (CKD + metformin) watch-outs.",
+  "docs": [
+    { "kind": "chart", "file": "chart.md", "extracted": {
+      "summary": "79-year-old man with type 2 diabetes, CKD stage 3a (eGFR 48), BPH and recurrent UTIs. UTI diagnosed Oct 11, started amoxicillin-clavulanate Oct 12 for 7 days; symptoms improving, afebrile. Independent with cane, good appetite, normally one formed stool daily.",
+      "transcribed_text": null,
+      "medications": [
+        { "name": "Amoxicillin-clavulanate", "dose": "875/125 mg", "frequency": "BID", "route": "PO", "started": "2026-10-12 (7-day course)", "indication": "Urinary tract infection", "drug_class": "antibiotic", "prn": false }
+      ],
+      "diagnoses": ["Type 2 diabetes mellitus", "Chronic kidney disease stage 3a (eGFR 48)", "Benign prostatic hyperplasia", "Recurrent urinary tract infections", "Hypertension"],
+      "allergies": ["Sulfa (hives)"],
+      "diet": { "description": "Diabetic / consistent carbohydrate", "fiber_level": "unknown", "fluid_intake": "adequate", "notes": "1500–1800 mL/day typical" },
+      "mobility": "Independent with cane; attends exercise group",
+      "recent_changes": ["Oct 11: UTI symptoms, low-grade fever 37.8 °C", "Oct 12: started amoxicillin-clavulanate 875/125 mg BID x7 days", "Oct 15: reports stomach gurgling"],
+      "labs": [{ "name": "A1c", "value": "7.4%", "date": "2026-08" }, { "name": "eGFR", "value": "48", "date": "2026-08" }, { "name": "Temperature", "value": "37.8 °C", "date": "2026-10-11" }]
+    } },
+    { "kind": "mar", "file": "mar.md", "extracted": {
+      "summary": "Routine metformin, tamsulosin, lisinopril and atorvastatin, plus a 7-day course of amoxicillin-clavulanate started Oct 12 for a UTI (ends Oct 18). No laxatives or antidiarrhoeals.",
+      "transcribed_text": null,
+      "medications": [
+        { "name": "Metformin", "dose": "500 mg", "frequency": "BID with meals", "route": "PO", "started": "2019-03", "indication": "Type 2 diabetes", "drug_class": "biguanide (metformin)", "prn": false },
+        { "name": "Tamsulosin", "dose": "0.4 mg", "frequency": "daily HS", "route": "PO", "started": "2021-05", "indication": "BPH", "drug_class": "alpha-blocker", "prn": false },
+        { "name": "Lisinopril", "dose": "10 mg", "frequency": "daily", "route": "PO", "started": "2020-02", "indication": "Hypertension / renal protection", "drug_class": "ACE inhibitor", "prn": false },
+        { "name": "Atorvastatin", "dose": "20 mg", "frequency": "daily HS", "route": "PO", "started": "2020-02", "indication": "Lipids", "drug_class": "statin", "prn": false },
+        { "name": "Amoxicillin-clavulanate", "dose": "875/125 mg", "frequency": "BID", "route": "PO", "started": "2026-10-12", "indication": "Urinary tract infection", "drug_class": "antibiotic", "prn": false }
+      ],
+      "diagnoses": [], "allergies": [],
+      "diet": { "description": null, "fiber_level": "unknown", "fluid_intake": "unknown", "notes": null },
+      "mobility": null,
+      "recent_changes": ["Amoxicillin-clavulanate started 2026-10-12, 7-day course ending Oct 18"],
+      "labs": []
+    } },
+    { "kind": "menu", "file": "menu.md", "extracted": {
+      "summary": "Diabetic diet with whole grains, fruit and vegetables (~25 g fibre/day). Intake and fluids were good until Oct 16–17, when meals dropped to 50–75% and fluids fell to 900–1300 mL.",
+      "transcribed_text": null,
+      "medications": [], "diagnoses": [], "allergies": [],
+      "diet": { "description": "Diabetic diet: oatmeal, whole-wheat toast, fruit, vegetables, brown rice, yogurt", "fiber_level": "high", "fluid_intake": "adequate", "notes": "Fluids dropped to 900–1300 mL on Oct 16–17" },
+      "mobility": null,
+      "recent_changes": ["Fluid intake falling over the last 2 days"],
+      "labs": []
+    } }
+  ],
+  "entries": [
+    { "day": -14, "time": "08:30", "type": 4, "flags": [] },
+    { "day": -13, "time": "08:45", "type": 4, "flags": [] },
+    { "day": -12, "time": "08:20", "type": 3, "flags": [] },
+    { "day": -11, "time": "08:50", "type": 4, "flags": [] },
+    { "day": -10, "time": "08:35", "type": 4, "flags": [] },
+    { "day": -9, "time": "09:10", "type": 4, "flags": [] },
+    { "day": -8, "time": "08:25", "type": 3, "flags": [] },
+    { "day": -7, "time": "08:40", "type": 4, "flags": [] },
+    { "day": -6, "time": "08:30", "type": 4, "flags": [] },
+    { "day": -5, "time": "08:55", "type": 4, "flags": [] },
+    { "day": -4, "time": "08:20", "type": 5, "flags": [] }
+  ],
+  "photos": [
+    { "file": "photos/IMG_7301.jpg", "day": -3, "time": "09:05", "expect_type": 6 },
+    { "file": "photos/IMG_7302.jpg", "day": -2, "time": "07:52", "expect_type": 6 },
+    { "file": "photos/IMG_7303.jpg", "day": -2, "time": "15:30", "expect_type": 7 },
+    { "file": "photos/IMG_7304.jpg", "day": -1, "time": "08:14", "expect_type": 6 },
+    { "file": "photos/IMG_7305.jpg", "day": 0, "time": "06:48", "expect_type": 7 },
+    { "file": "photos/IMG_7306.jpg", "day": 0, "time": "11:20", "expect_type": 6 }
+  ]
+}

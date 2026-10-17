@@ -1,0 +1,64 @@
+{
+  "id": "margaret-holt",
+  "name": "Margaret Holt",
+  "room": "112-A",
+  "dob": "1942-03-14",
+  "sex": "F",
+  "summary": "84 y, HTN, knee OA (recent flare, chair-bound), mild cognitive impairment. Low-fibre preferences, fluids under target.",
+  "scenario": "Constipation explained by the record: low-fibre diet, low fluids, reduced mobility (and amlodipine). Last 3 days have no entries -> 'no BM' flag; upload photos/ to add the latest hard stools.",
+  "docs": [
+    { "kind": "chart", "file": "chart.md", "extracted": {
+      "summary": "84-year-old woman with hypertension, bilateral knee osteoarthritis in flare (chair-bound ~2 weeks), mild cognitive impairment and GERD. Fluid intake 700–900 mL/day against a 1500 mL target; recent notes of fullness, straining and poor appetite.",
+      "transcribed_text": null,
+      "medications": [],
+      "diagnoses": ["Hypertension", "Osteoarthritis bilateral knees (right knee flare)", "Mild cognitive impairment", "GERD", "History of UTI (2025)"],
+      "allergies": ["Penicillin (rash)"],
+      "diet": { "description": "Regular texture; strong preference for soft white foods", "fiber_level": "unknown", "fluid_intake": "low", "notes": "Intake sheets 700–900 mL/day vs 1500 mL target; needs prompting" },
+      "mobility": "Walker for short distances; mostly chair-bound since knee flare ~2 weeks ago, declines walking group",
+      "recent_changes": ["Right knee OA flare ~2 weeks ago with reduced mobility", "Oct 10: complains stomach feels full, ate 50% lunch", "Oct 13: straining on toilet ~20 min", "Oct 15: ate 25% breakfast, fluids 650 mL"],
+      "labs": []
+    } },
+    { "kind": "mar", "file": "mar.md", "extracted": {
+      "summary": "Five routine medications, no antibiotics or opioids, no changes this month. Docusate PRN is available but has not been given.",
+      "transcribed_text": null,
+      "medications": [
+        { "name": "Amlodipine", "dose": "5 mg", "frequency": "daily", "route": "PO", "started": "2023-01", "indication": "Hypertension", "drug_class": "calcium-channel blocker", "prn": false },
+        { "name": "Acetaminophen", "dose": "650 mg", "frequency": "TID", "route": "PO", "started": "2025-11", "indication": "Knee pain", "drug_class": "analgesic", "prn": false },
+        { "name": "Omeprazole", "dose": "20 mg", "frequency": "daily", "route": "PO", "started": "2022-08", "indication": "GERD", "drug_class": "proton-pump inhibitor", "prn": false },
+        { "name": "Multivitamin", "dose": "1 tab", "frequency": "daily", "route": "PO", "started": "2024-06", "indication": "Supplement", "drug_class": "vitamin", "prn": false },
+        { "name": "Docusate sodium", "dose": "100 mg", "frequency": "PRN daily", "route": "PO", "started": "2024-06", "indication": "Constipation", "drug_class": "stool softener", "prn": true }
+      ],
+      "diagnoses": [], "allergies": [],
+      "diet": { "description": null, "fiber_level": "unknown", "fluid_intake": "unknown", "notes": null },
+      "mobility": null,
+      "recent_changes": ["Docusate PRN not administered this month"],
+      "labs": []
+    } },
+    { "kind": "menu", "file": "menu.md", "extracted": {
+      "summary": "Regular diet but the resident eats almost exclusively low-fibre white/soft foods and declines fruit, vegetables and bran. Fluids 600–900 mL/day against a 1500 mL target; fibre estimated under 10 g/day.",
+      "transcribed_text": null,
+      "medications": [], "diagnoses": [], "allergies": [],
+      "diet": { "description": "Cream of wheat, white toast, cream soup, white bread, mashed potato, pudding, ice cream; declines fruit, vegetables, bran", "fiber_level": "low", "fluid_intake": "low", "notes": "Fibre < 10 g/day (goal 25 g); fluids 600–900 mL/day (goal 1500 mL); meals 25–75% eaten" },
+      "mobility": null,
+      "recent_changes": ["Intake declining over the last week (down to 25–50% of meals, 600–700 mL fluids)"],
+      "labs": []
+    } }
+  ],
+  "entries": [
+    { "day": -14, "time": "07:50", "type": 4, "flags": [] },
+    { "day": -13, "time": "08:10", "type": 4, "flags": [] },
+    { "day": -12, "time": "07:35", "type": 3, "flags": [] },
+    { "day": -11, "time": "09:00", "type": 4, "flags": [] },
+    { "day": -10, "time": "07:45", "type": 3, "flags": [] },
+    { "day": -8, "time": "08:20", "type": 3, "flags": ["low_fluids"] },
+    { "day": -7, "time": "10:05", "type": 2, "flags": [] },
+    { "day": -6, "time": "08:40", "type": 2, "flags": ["low_fluids"] },
+    { "day": -4, "time": "09:30", "type": 1, "flags": ["straining"], "note": "~20 min on toilet" },
+    { "day": -3, "time": "08:15", "type": 2, "flags": ["straining", "missed_meal"] }
+  ],
+  "photos": [
+    { "file": "photos/IMG_5121.jpg", "day": -2, "time": "08:12", "expect_type": 2 },
+    { "file": "photos/IMG_5122.jpg", "day": -1, "time": "09:41", "expect_type": 1 },
+    { "file": "photos/IMG_5123.jpg", "day": 0, "time": "07:58", "expect_type": 1 }
+  ]
+}

@@ -1,70 +1,73 @@
-# Stool classifier (Bristol scale) – models + training
+# Take Shit Seriously — bowel-health early warning for care teams
 
-Everything needed to train, evaluate and ship the browser-side segmentation models. No web app yet.
+Hackathon project (yes, the name is a pun): help nurses, CNAs and wellness staff in long-term care notice a bowel problem
+days before it becomes a fall, a dehydration admission or a C. difficile outbreak.
 
-## Layout
+**How it works**
+
+1. A CNA photographs a stool with the unit iPad (or bulk-uploads several days of photos).
+   Two small YOLO26n-seg models classify it **on the device** (Bristol group + exact type, mask
+   overlay). The photo never leaves the device; only the score, time and quick-tap flags are stored.
+2. Charts, MARs and menus are dropped into the resident's record box. They are parsed on the device
+   (PDF/text) or sent as an image, and OpenAI structures them into medications, diagnoses, diet,
+   mobility and recent changes.
+3. A deterministic **rules engine** cross-checks the bowel log with the record and produces findings
+   with a plain-language *why* and next steps: constipation explained by low fibre + opioids, loose
+   stools expected on an antibiotic, or — the important one — a pattern with **no documented
+   explanation** that needs investigation.
+4. **Analyse record** asks the LLM to reason over log + record + rule findings and return expected vs
+   unexpected observations, likely causes, prioritised actions, questions for the team and data gaps.
+5. Trends live in **Tiger Cloud** (TimescaleDB hypertable, per-day `time_bucket` rollups). The UI is
+   PointClickCare-inspired and works on iPad, phone and laptop. Hosted on Cloudflare Pages.
 
 ```
-models/     stool_3group.onnx / .pt   3-class model: constipated / normal / loose   (ship this one)
-            stool_v3.onnx / .pt       7-class model: Bristol types 1–7             (secondary hint)
-data/       stool_yolo_seg_v3_640.zip         clean 7-class YOLO dataset (865 photos, 640 px)
-            stool_yolo_seg_v3_640_3group.zip  same photos, labels merged to 3 groups
-            raw/                              original Roboflow fork export (COCO)
-training/   train_yolo26_seg_colab_v3_640.ipynb   Colab notebook, 7-class
-            train_yolo26_seg_colab_3group.ipynb   Colab notebook, 3-class
-            coco2yolo_seg.py                      Roboflow COCO -> YOLO converter (dedupe, resplit, merge3)
-docs/       DATASET_ATTRIBUTION.md   CC BY 4.0 credit text + medical disclaimer (must appear in the app)
+app/        the web app (Vite + React + TS, Cloudflare Pages Functions)   -> app/README.md
+demo/       five synthetic residents, their records, EXIF-dated photos    -> demo/README.md
+models/     stool_3group_v4.onnx / stool_v4.onnx (+ .pt)                   -> ship the ONNX files
+training/   Colab notebooks + Roboflow COCO -> YOLO converter
+data/       datasets (git-ignored)
+docs/       dataset attribution (CC BY 4.0) + disclaimer
 ```
 
-## Model contract (both ONNX files, YOLO26n-seg, end-to-end head, no NMS needed)
+## Quick start
+
+```bash
+cd app && npm install
+cp .dev.vars.example .dev.vars   # DATABASE_URL (Tiger Cloud), OPENAI_API_KEY
+npm run preview                  # http://localhost:8788 -> Settings -> Load demo residents
+python3 ../demo/stamp_exif.py    # re-date the demo photos to end today (pip install piexif pillow)
+```
+Deployment to Cloudflare Pages: see `app/README.md` (root dir `app`, build `npm run build`, output `dist`).
+
+## Models (browser-side, verified)
 
 | | |
 |---|---|
-| input | `images` float32 `[1, 3, 640, 640]`, RGB, NCHW, pixel/255, photo stretched to 640×640 |
-| output0 | float32 `[1, 300, 38]` – per detection: `x1, y1, x2, y2, score, class_id, 32 mask coeffs` (pixels in the 640 input) |
-| output1 | float32 `[1, 32, 160, 160]` – mask prototypes |
-| threshold | keep rows with `score > 0.2` (lower than the usual 0.25: the models under-detect, not over-detect) |
-| mask | `sigmoid(coeffs · output1[0].reshape(32, -1))` -> 160×160, crop to box/4, upscale to display |
-| file size | 11 MB each, opset 17, fp32, fixed shape (onnxruntime-web, wasm or webgpu) |
+| `models/stool_3group_v4.onnx` | 3 classes: 0 constipated (1–2), 1 normal (3–5), 2 loose (6–7). **Headline model.** |
+| `models/stool_v4.onnx` | 7 classes (Bristol 1–7). Shown only when score ≥ 0.6 and inside the headline group. |
+| input / outputs | `images [1,3,640,640]` RGB/255 stretched · `output0 [1,300,38]` (`x1,y1,x2,y2,score,class,32 coeffs`) · `output1 [1,32,160,160]` protos · keep `score > 0.2` |
 
-Class ids:
-- `stool_3group`: 0 = constipated (types 1–2), 1 = normal (3–5), 2 = loose (6–7)
-- `stool_v3`: 0..6 = Bristol type 1..7
+Per-photo accuracy (class of the top detection), measured Oct 17 2026 on photos never used in training:
 
-## Measured accuracy (108 unseen test photos, same photos for both models, conf > 0.2)
-
-| | 3-group | 7-class |
+| | curated test split (108 photos, smartgut) | crowd-sourced phone photos (73, Bristol-Stool-Boost valid+test) |
 |---|---|---|
-| per photo, top detection correct | **85 %** | 69 % |
-| per photo, within ±1 Bristol type | – | 82 % |
-| photos with no detection | 0 % | 2 % |
-| per labelled instance localized (IoU > 0.5) | 76 % | 76 % |
-| CPU inference (onnxruntime, laptop) | ~145 ms | ~160 ms |
+| 3-group headline correct | 82 % (v3: 83 %) | **70 %** (v3: 63 %) |
+| exact type correct | 74 % (v3: 69 %) | **49 %** (v3: 30 %) |
+| exact type within ±1 | 87 % (v3: 81 %) | 79 % (v3: 67 %) |
+| app policy: type shown / correct when shown | 81 % / 83 % | 49 % / **69 %** (v3: 30 % / 50 %) |
 
-7-class is strong on types 1, 6, 7 (91–93 % when found) and weak on 2–5 (43–64 %). Type 2 is mostly called 3; type 4 splits between 2 and 3.
-The 3-group model's errors are almost all between neighbouring groups (constipated↔normal, normal↔loose); no constipated↔loose confusion.
+Still weak: hard stools (types 1–2) on real backgrounds, group correct on 5 of 11. Training data: the
+"stool classification" dataset by smartgut (Roboflow Universe, CC BY 4.0), de-duplicated (294 duplicate photos
+removed) and re-split 75/12.5/12.5, plus 232 crowd-sourced "Bristol-Stool-Boost" photos whose masks were
+pseudo-labelled by the v3 model (`training/pseudo_label_boost.py`, licence of that set unverified, see
+`docs/DATASET_ATTRIBUTION.md`). Retrain with the `*_v4*` notebooks in `training/`; cell 6b reports the
+real-world score. To ship a new model, give it a new file name in `app/public/models/` and bump `CACHE` in
+`app/src/lib/model.ts` so devices drop their cached copy.
 
-Numbers come from `onnxruntime` on the exported ONNX files, i.e. the exact artefacts the browser will run.
+## Privacy model
 
-## App behaviour (tested by simulating the policy on the 108 test photos)
-- **Headline** = class of the highest-score detection from `stool_3group`, threshold 0.2. 85 % correct, an answer on 100 % of photos.
-  Raising the threshold to 0.5 gives 88 % correct but no answer on 7 % of photos; not worth it.
-- **"Likely type N"** from `stool_v3`, shown only when its score ≥ 0.6 **and** the type falls inside the headline group.
-  Shown on 83 % of photos, 78 % exact, ~88 % within one type. (Showing it whenever score ≥ 0.5 was 73 % exact; the agreement check matters more than the threshold.)
-- **Mask overlay**: the decode formula above gives median IoU 0.91 against the labels. Draw the mask for *every* kept detection, not just the top one;
-  type-1 photos have many small lumps and a single mask misses most of them.
-- **Phone photos are not square**: stretching the 3:4 camera frame to 640×640 scored the same as letterboxing or centre-cropping (85 / 83 / 85 %).
-  Stretch is simplest, and box/mask coordinates map back by scaling x by W/640 and y by H/640.
-- Disclaimer from `docs/DATASET_ATTRIBUTION.md` on screen.
-
-## Hosting notes
-- Fully client-side; any static host works. Cloudflare Pages preferred (unlimited bandwidth, custom headers for multi-threaded WASM and long-lived model caching). GitHub Pages works but cannot set headers.
-- Cache the model with the Cache API; iOS Safari wipes site storage after 7 days unless installed as a PWA.
-- Models are under GitHub's 100 MB limit: commit directly, do not use Git LFS (Pages serves LFS pointers as text).
-
-## Retraining
-Upload a notebook from `training/` to Colab, pick an A100 or L4, upload the matching zip from `data/` when asked (it is copied to Drive once).
-To rebuild the zips from a new Roboflow export:
-```
-python3 training/coco2yolo_seg.py <export_dir> <out_dir> --dedupe --drop-unannotated --resplit [--merge3]
-```
+- Stool photos: processed in the browser with onnxruntime-web; thumbnails stay in that browser's
+  IndexedDB; the server only ever sees `{time, group, type, confidence, flags, note}`.
+- Records: text is sent to OpenAI for structuring and stored in the database; chart *photos* are sent
+  to OpenAI vision but not stored (only the transcription/extraction is).
+- Not a medical device. Decision support only; the disclaimer is shown in the app footer and settings.

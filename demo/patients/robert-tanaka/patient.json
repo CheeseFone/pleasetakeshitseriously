@@ -1,0 +1,54 @@
+{
+  "id": "robert-tanaka",
+  "name": "Robert Tanaka",
+  "room": "110-B",
+  "dob": "1950-11-02",
+  "sex": "M",
+  "summary": "75 y, CAD with stent, HTN. Independent, eats well. Regular daily stool.",
+  "scenario": "Control resident: normal pattern, nothing to flag. Shows the dashboard does not cry wolf.",
+  "docs": [
+    { "kind": "chart", "file": "chart.md", "extracted": {
+      "summary": "75-year-old man with coronary artery disease (stented 2019), hyperlipidaemia and hypertension. Independent, walks daily, eats 100%, fluids 1800 mL/day, regular daily bowel movement.",
+      "transcribed_text": null,
+      "medications": [],
+      "diagnoses": ["Coronary artery disease (stent 2019)", "Hyperlipidaemia", "Hypertension", "Mild hearing loss"],
+      "allergies": ["NKDA"],
+      "diet": { "description": "Heart-healthy", "fiber_level": "moderate", "fluid_intake": "adequate", "notes": "Eats 100%; 1800 mL/day" },
+      "mobility": "Independent, walks outdoors daily",
+      "recent_changes": [],
+      "labs": []
+    } },
+    { "kind": "mar", "file": "mar.md", "extracted": {
+      "summary": "Atorvastatin, metoprolol and low-dose aspirin. No changes.",
+      "transcribed_text": null,
+      "medications": [
+        { "name": "Atorvastatin", "dose": "40 mg", "frequency": "daily HS", "route": "PO", "started": "2019-06", "indication": "CAD / lipids", "drug_class": "statin", "prn": false },
+        { "name": "Metoprolol tartrate", "dose": "25 mg", "frequency": "BID", "route": "PO", "started": "2019-06", "indication": "CAD / HTN", "drug_class": "beta-blocker", "prn": false },
+        { "name": "Aspirin", "dose": "81 mg", "frequency": "daily", "route": "PO", "started": "2019-06", "indication": "CAD", "drug_class": "antiplatelet", "prn": false }
+      ],
+      "diagnoses": [], "allergies": [],
+      "diet": { "description": null, "fiber_level": "unknown", "fluid_intake": "unknown", "notes": null },
+      "mobility": null,
+      "recent_changes": [],
+      "labs": []
+    } }
+  ],
+  "entries": [
+    { "day": -14, "time": "07:10", "type": 4, "flags": [] },
+    { "day": -13, "time": "07:25", "type": 4, "flags": [] },
+    { "day": -12, "time": "07:05", "type": 3, "flags": [] },
+    { "day": -11, "time": "07:30", "type": 4, "flags": [] },
+    { "day": -10, "time": "07:15", "type": 4, "flags": [] },
+    { "day": -9, "time": "07:20", "type": 4, "flags": [] },
+    { "day": -8, "time": "07:40", "type": 3, "flags": [] },
+    { "day": -7, "time": "07:10", "type": 4, "flags": [] },
+    { "day": -6, "time": "07:25", "type": 5, "flags": [] },
+    { "day": -5, "time": "07:15", "type": 4, "flags": [] },
+    { "day": -4, "time": "07:35", "type": 4, "flags": [] },
+    { "day": -3, "time": "07:20", "type": 3, "flags": [] },
+    { "day": -2, "time": "07:10", "type": 4, "flags": [] },
+    { "day": -1, "time": "07:30", "type": 4, "flags": [] },
+    { "day": 0, "time": "07:15", "type": 4, "flags": [] }
+  ],
+  "photos": []
+}

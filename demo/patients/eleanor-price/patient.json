@@ -1,0 +1,56 @@
+{
+  "id": "eleanor-price",
+  "name": "Eleanor Price",
+  "room": "221-A",
+  "dob": "1935-06-05",
+  "sex": "F",
+  "summary": "91 y, moderate dementia, AF on apixaban, chronic constipation on senna + PEG + docusate. Cannot report symptoms reliably.",
+  "scenario": "Medication issue: loose stools and incontinence after a laxative 'catch-up' (lactulose PRN x2) on top of a full scheduled regimen that was never reduced. Expected: loose stools explained by the bowel regimen -> recommend holding/reviewing laxatives, skin care, hydration. Also an example of a resident who cannot self-report.",
+  "docs": [
+    { "kind": "chart", "file": "chart.md", "extracted": {
+      "summary": "91-year-old woman with moderate Alzheimer dementia, atrial fibrillation on apixaban and chronic constipation on a scheduled bowel regimen. After 4 days without a BM she received lactulose PRN twice (Oct 8–9), then from Oct 13 had repeated loose stools with incontinence and perineal redness while senna and PEG continued as scheduled. Afebrile, intake 50–75%.",
+      "transcribed_text": null,
+      "medications": [
+        { "name": "Lactulose", "dose": "30 mL", "frequency": "PRN", "route": "PO", "started": "PRN, given 2026-10-08 and 2026-10-09", "indication": "No BM for 4 days", "drug_class": "osmotic laxative", "prn": true }
+      ],
+      "diagnoses": ["Chronic constipation", "Atrial fibrillation", "Dementia, moderate (Alzheimer type)", "Hypertension"],
+      "allergies": ["Codeine (nausea)"],
+      "diet": { "description": "Minced-moist texture", "fiber_level": "unknown", "fluid_intake": "adequate", "notes": "Eats 50–75%; fluids 1100–1300 mL/day with prompting" },
+      "mobility": "Wheelchair for distance, one-assist transfers",
+      "recent_changes": ["Oct 8–9: lactulose PRN given twice after 4 days without BM", "Oct 13–16: loose stools 2–3/day with incontinence, perineal redness", "Senna and PEG continued as scheduled despite loose stools"],
+      "labs": []
+    } },
+    { "kind": "mar", "file": "mar.md", "extracted": {
+      "summary": "Apixaban, donepezil, amlodipine plus a three-drug scheduled bowel regimen (senna BID, PEG daily, docusate BID) with lactulose PRN given twice on Oct 8–9. No antibiotics, no dose changes.",
+      "transcribed_text": null,
+      "medications": [
+        { "name": "Apixaban", "dose": "2.5 mg", "frequency": "BID", "route": "PO", "started": "2022-01", "indication": "Atrial fibrillation", "drug_class": "anticoagulant", "prn": false },
+        { "name": "Donepezil", "dose": "10 mg", "frequency": "daily HS", "route": "PO", "started": "2021-11", "indication": "Dementia", "drug_class": "cholinesterase inhibitor", "prn": false },
+        { "name": "Amlodipine", "dose": "5 mg", "frequency": "daily", "route": "PO", "started": "2020-06", "indication": "Hypertension", "drug_class": "calcium-channel blocker", "prn": false },
+        { "name": "Senna", "dose": "17.2 mg", "frequency": "BID", "route": "PO", "started": "2023-03", "indication": "Chronic constipation", "drug_class": "stimulant laxative", "prn": false },
+        { "name": "Polyethylene glycol 3350", "dose": "17 g", "frequency": "daily", "route": "PO", "started": "2023-03", "indication": "Chronic constipation", "drug_class": "osmotic laxative", "prn": false },
+        { "name": "Docusate sodium", "dose": "100 mg", "frequency": "BID", "route": "PO", "started": "2021-10", "indication": "Chronic constipation", "drug_class": "stool softener", "prn": false },
+        { "name": "Lactulose", "dose": "30 mL", "frequency": "PRN daily if no BM in 3 days", "route": "PO", "started": "2023-03; PRN given Oct 8 and Oct 9", "indication": "Constipation", "drug_class": "osmotic laxative", "prn": true }
+      ],
+      "diagnoses": [], "allergies": [],
+      "diet": { "description": null, "fiber_level": "unknown", "fluid_intake": "unknown", "notes": null },
+      "mobility": null,
+      "recent_changes": ["Lactulose PRN given Oct 8 and Oct 9"],
+      "labs": []
+    } }
+  ],
+  "entries": [
+    { "day": -14, "time": "10:20", "type": 3, "flags": [] },
+    { "day": -12, "time": "11:05", "type": 2, "flags": [] },
+    { "day": -7, "time": "14:30", "type": 4, "flags": ["incontinence"], "note": "Large BM after lactulose x2" },
+    { "day": -6, "time": "09:40", "type": 5, "flags": [] },
+    { "day": -4, "time": "08:30", "type": 6, "flags": [] },
+    { "day": -4, "time": "16:10", "type": 6, "flags": ["incontinence"] },
+    { "day": -2, "time": "07:55", "type": 7, "flags": [] },
+    { "day": -2, "time": "13:20", "type": 6, "flags": ["incontinence"] },
+    { "day": -2, "time": "19:05", "type": 6, "flags": [] },
+    { "day": -1, "time": "08:40", "type": 6, "flags": ["incontinence"], "note": "Peri-area red, barrier cream" },
+    { "day": -1, "time": "15:50", "type": 6, "flags": ["low_fluids"] }
+  ],
+  "photos": []
+}

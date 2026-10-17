@@ -1,3 +1,11 @@
 .DS_Store
 # datasets are large and re-buildable from Roboflow; keep them out of git
 data/
+
+# secrets
+*credentials*.txt
+.env
+.env.*
+.dev.vars
+
+# app build artefacts live under app/.gitignore

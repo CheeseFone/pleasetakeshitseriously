@@ -1,0 +1,62 @@
+{
+  "id": "dorothy-kessler",
+  "name": "Dorothy Kessler",
+  "room": "318-A",
+  "dob": "1938-01-30",
+  "sex": "F",
+  "summary": "88 y, hypothyroidism on levothyroxine, HFpEF, osteoporosis. High-fibre diet, good fluids, fully mobile. New hard stools.",
+  "scenario": "UNEXPLAINED constipation that needs investigation: diet, fluids and mobility are all good and there are no constipating meds on the MAR. Hints for the team are buried in the notes: cold intolerance, weight gain, fatigue, TSH not checked for 14 months, and daughter's calcium chews taken with the levothyroxine (blocks absorption). Rules should say 'no documented explanation'; the AI analysis should suggest TSH, med timing, calcium.",
+  "docs": [
+    { "kind": "chart", "file": "chart.md", "extracted": {
+      "summary": "88-year-old woman with long-standing hypothyroidism, HFpEF, osteoporosis and stable depression. Fully mobile, high-fibre diet, good fluids, historically regular. Over the last 2–3 weeks: cold intolerance, 2 kg weight gain, fatigue/sleeping in, dry skin, and a week of hard stools with straining. Daughter brought calcium chews which she takes with her morning pills (not on MAR). TSH last checked 14 months ago.",
+      "transcribed_text": null,
+      "medications": [],
+      "diagnoses": ["Hypothyroidism", "Heart failure with preserved ejection fraction", "Osteoporosis (vertebral compression fracture 2024)", "Depression, stable", "Hypertension"],
+      "allergies": ["NKDA"],
+      "diet": { "description": "Regular, high-fibre by preference", "fiber_level": "high", "fluid_intake": "adequate", "notes": "Eats 75–100%; fluids 1400–1600 mL/day" },
+      "mobility": "Ambulates independently, attends chair yoga twice weekly; no recent change",
+      "recent_changes": ["Oct 2: feels the cold more than usual", "Oct 6: weight up 2.1 kg since Sept 1 with unchanged appetite", "Oct 9: fatigue, sleeping until 09:30", "Oct 12: started taking two over-the-counter calcium chews with morning pills (not on MAR)", "Oct 15: hard stools and straining for about a week; dry skin"],
+      "labs": [{ "name": "TSH", "value": "2.1 mIU/L", "date": "2025-08-14" }, { "name": "Potassium", "value": "4.0", "date": "2026-06-10" }, { "name": "Creatinine", "value": "78", "date": "2026-06-10" }, { "name": "Weight", "value": "64.1 kg (62.0 kg on 2026-09-01)", "date": "2026-10-06" }]
+    } },
+    { "kind": "mar", "file": "mar.md", "extracted": {
+      "summary": "Levothyroxine 75 mcg, furosemide, sertraline, weekly alendronate, vitamin D and ramipril. Since June 2026 all 08:00 medications, including levothyroxine, are given together with breakfast. No constipating drugs, laxatives or antibiotics ordered.",
+      "transcribed_text": null,
+      "medications": [
+        { "name": "Levothyroxine", "dose": "75 mcg", "frequency": "daily 08:00 with breakfast", "route": "PO", "started": "2009 (dose unchanged since 2023)", "indication": "Hypothyroidism", "drug_class": "thyroid hormone", "prn": false },
+        { "name": "Furosemide", "dose": "20 mg", "frequency": "daily", "route": "PO", "started": "2024-02", "indication": "HFpEF / oedema", "drug_class": "loop diuretic", "prn": false },
+        { "name": "Sertraline", "dose": "50 mg", "frequency": "daily", "route": "PO", "started": "2021-09", "indication": "Depression", "drug_class": "SSRI antidepressant", "prn": false },
+        { "name": "Alendronate", "dose": "70 mg", "frequency": "weekly", "route": "PO", "started": "2024-05", "indication": "Osteoporosis", "drug_class": "bisphosphonate", "prn": false },
+        { "name": "Vitamin D3", "dose": "1000 IU", "frequency": "daily", "route": "PO", "started": "2024-05", "indication": "Osteoporosis", "drug_class": "vitamin", "prn": false },
+        { "name": "Ramipril", "dose": "2.5 mg", "frequency": "daily", "route": "PO", "started": "2022-04", "indication": "Hypertension", "drug_class": "ACE inhibitor", "prn": false }
+      ],
+      "diagnoses": [], "allergies": [],
+      "diet": { "description": null, "fiber_level": "unknown", "fluid_intake": "unknown", "notes": null },
+      "mobility": null,
+      "recent_changes": ["June 2026: 08:00 medications consolidated to be given with breakfast (levothyroxine no longer on an empty stomach)"],
+      "labs": []
+    } },
+    { "kind": "menu", "file": "menu.md", "extracted": {
+      "summary": "High-fibre regular diet (bran, fruit, vegetables, prunes, ~28 g fibre/day) with 1400–1600 mL fluids. Morning pills taken at the breakfast table. No dietary changes.",
+      "transcribed_text": null,
+      "medications": [], "diagnoses": [], "allergies": [],
+      "diet": { "description": "Bran flakes, banana, whole-wheat toast, lentil soup, salad, vegetables, stewed prunes", "fiber_level": "high", "fluid_intake": "adequate", "notes": "Morning pills taken with breakfast at the table" },
+      "mobility": null,
+      "recent_changes": [],
+      "labs": []
+    } }
+  ],
+  "entries": [
+    { "day": -14, "time": "07:20", "type": 4, "flags": [] },
+    { "day": -13, "time": "07:35", "type": 4, "flags": [] },
+    { "day": -12, "time": "07:15", "type": 3, "flags": [] },
+    { "day": -11, "time": "08:00", "type": 4, "flags": [] },
+    { "day": -10, "time": "07:30", "type": 3, "flags": [] },
+    { "day": -9, "time": "07:40", "type": 3, "flags": [] },
+    { "day": -7, "time": "08:30", "type": 2, "flags": [] },
+    { "day": -6, "time": "09:10", "type": 2, "flags": ["straining"] },
+    { "day": -4, "time": "08:45", "type": 1, "flags": ["straining"] },
+    { "day": -3, "time": "09:20", "type": 2, "flags": [] },
+    { "day": -1, "time": "08:50", "type": 1, "flags": ["straining", "pain"], "note": "Says she feels bloated" }
+  ],
+  "photos": []
+}

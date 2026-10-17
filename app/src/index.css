@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* PointClickCare-inspired clinical palette: navy header, cool grey canvas, white cards, teal accent. */
+@theme {
+  --color-navy-900: #0f2d4f;
+  --color-navy-800: #143d6b;
+  --color-navy-700: #1b4f87;
+  --color-navy-600: #2563a6;
+  --color-navy-100: #dbe7f5;
+  --color-navy-50: #eef4fb;
+  --color-teal-600: #0e8c7a;
+  --color-teal-500: #19a48f;
+  --color-teal-100: #d5f2ec;
+  --color-canvas: #f3f5f8;
+  --color-ink: #1d2733;
+  --color-muted: #5b6b7c;
+  --color-line: #d8dee7;
+  --color-urgent: #b91c1c;
+  --color-urgent-bg: #fde8e8;
+  --color-high: #c2410c;
+  --color-high-bg: #ffedd5;
+  --color-watch: #a16207;
+  --color-watch-bg: #fef3c7;
+  --color-stable: #15803d;
+  --color-stable-bg: #dcfce7;
+  --color-nodata: #64748b;
+  --color-nodata-bg: #e2e8f0;
+  --color-b-hard: #92400e;
+  --color-b-normal: #15803d;
+  --color-b-loose: #b45309;
+  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { @apply bg-canvas text-ink font-sans antialiased; margin: 0; }
+button, input, select, textarea { font: inherit; }
+
+@utility card { @apply bg-white rounded-md border border-line shadow-[0_1px_2px_rgba(16,24,40,.06)]; }
+@utility card-h { @apply px-4 py-2.5 border-b border-line flex items-center justify-between gap-3 bg-navy-50/60 rounded-t-md; }
+@utility card-t { @apply text-[13px] font-semibold tracking-wide uppercase text-navy-800; }
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded px-3.5 py-2 text-sm font-medium border transition-colors disabled:opacity-50 disabled:cursor-not-allowed select-none min-h-[40px]; }
+@utility btn-primary { @apply inline-flex items-center justify-center gap-2 rounded px-3.5 py-2 text-sm font-medium border transition-colors disabled:opacity-50 disabled:cursor-not-allowed select-none min-h-[40px] bg-navy-700 text-white border-navy-700 hover:bg-navy-600 active:bg-navy-800; }
+@utility btn-accent { @apply inline-flex items-center justify-center gap-2 rounded px-3.5 py-2 text-sm font-medium border transition-colors disabled:opacity-50 disabled:cursor-not-allowed select-none min-h-[40px] bg-teal-600 text-white border-teal-600 hover:bg-teal-500; }
+@utility btn-ghost { @apply inline-flex items-center justify-center gap-2 rounded px-3.5 py-2 text-sm font-medium border transition-colors disabled:opacity-50 disabled:cursor-not-allowed select-none min-h-[40px] bg-white text-navy-800 border-line hover:bg-navy-50; }
+@utility btn-danger { @apply inline-flex items-center justify-center gap-2 rounded px-3.5 py-2 text-sm font-medium border transition-colors disabled:opacity-50 disabled:cursor-not-allowed select-none min-h-[40px] bg-white text-urgent border-urgent/40 hover:bg-urgent-bg; }
+@utility pill { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap; }
+@utility label { @apply block text-[11px] uppercase tracking-wide font-semibold text-muted; }
+@utility input { @apply w-full rounded border border-line bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-navy-600/30 focus:border-navy-600 min-h-[40px]; }
+@utility chip { @apply inline-flex items-center rounded border border-line bg-navy-50 px-2 py-0.5 text-xs text-navy-800; }
+@utility spinner { @apply inline-block h-4 w-4 rounded-full border-2 border-current border-r-transparent; animation: spin .7s linear infinite; }
+.table { @apply w-full text-sm; }
+.table th { @apply text-left text-[11px] uppercase tracking-wide font-semibold text-muted px-3 py-2 bg-navy-50/70 border-b border-line; }
+.table td { @apply px-3 py-2 border-b border-line align-middle; }
+.table tr:last-child td { @apply border-b-0; }
+@keyframes spin { to { transform: rotate(360deg); } }

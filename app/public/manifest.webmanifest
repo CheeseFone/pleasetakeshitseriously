@@ -1,0 +1,1 @@
+{ "name": "Take Shit Seriously", "short_name": "TSS", "start_url": "/", "display": "standalone", "background_color": "#f3f5f8", "theme_color": "#143d6b", "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }] }
