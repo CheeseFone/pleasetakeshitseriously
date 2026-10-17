@@ -7,8 +7,9 @@ https://universe.roboflow.com/smartgut/stool-classification-uvnqx
 Licensed under **Creative Commons Attribution 4.0 International (CC BY 4.0)**:
 https://creativecommons.org/licenses/by/4.0/
 
-Changes made: annotations converted from COCO Segmentation to Ultralytics YOLO segmentation format
-(`coco2yolo_seg.py`); the unused parent category "stool" was removed, leaving classes 1–7.
+Changes made (`coco2yolo_seg.py`): annotations converted from COCO to Ultralytics YOLO segmentation
+format; the unused parent category "stool" removed, leaving classes 1–7; 294 duplicate photos removed;
+the 865 unique photos re-split 75/12.5/12.5 into train/valid/test.
 
 # Disclaimer
 
