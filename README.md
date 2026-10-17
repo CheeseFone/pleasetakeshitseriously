@@ -75,6 +75,8 @@ docs/       dataset attribution (CC BY 4.0) + disclaimer
 
 ## Quick start
 
+Pitch deck for judges: open `index.html` at the repo root (arrow keys to move, `F` for fullscreen). Screenshots live in `pitch/`.
+
 ```bash
 cd app && npm install
 cp .dev.vars.example .dev.vars   # DATABASE_URL (Tiger Cloud), OPENAI_API_KEY
