@@ -20,6 +20,44 @@ days before it becomes a fall, a dehydration admission or a C. difficile outbrea
 5. Trends live in **Tiger Cloud** (TimescaleDB hypertable, per-day `time_bucket` rollups). The UI is
    PointClickCare-inspired and works on iPad, phone and laptop. Hosted on Cloudflare Pages.
 
+```mermaid
+flowchart LR
+    subgraph device["On the device (browser, iPad / phone / laptop)"]
+        photo["Stool photo<br/>(camera or bulk upload, EXIF date)"]
+        yolo["2x YOLO26n-seg ONNX<br/>onnxruntime-web<br/>Bristol group + exact type"]
+        idb[("IndexedDB<br/>thumbnails only")]
+        docs["Chart / MAR / menu<br/>PDF / text parsed locally,<br/>or sent as image"]
+        ui["React UI<br/>roster · resident · trends · findings"]
+        photo --> yolo
+        yolo -->|thumbnail| idb
+    end
+
+    subgraph cf["Cloudflare Pages Functions (app/functions)"]
+        entries["POST /patients/:id/entries"]
+        docapi["POST /patients/:id/documents"]
+        analyze["POST /patients/:id/analyze"]
+        rules["Rules engine (shared/rules.ts)<br/>deterministic: expected vs<br/>unexplained patterns"]
+        patient["GET /patients/:id<br/>time_bucket day rollups + findings"]
+    end
+
+    subgraph ext["External"]
+        tiger[("Tiger Cloud<br/>TimescaleDB hypertable")]
+        openai["OpenAI<br/>structured outputs"]
+    end
+
+    yolo -->|"time, group, type,<br/>confidence, flags, note"| entries
+    docs --> docapi
+    docapi -->|text or image| openai
+    openai -->|"meds, diagnoses, diet,<br/>mobility, changes"| docapi
+    docapi -->|store extraction only| tiger
+    entries --> tiger
+    tiger --> patient
+    patient --> rules --> ui
+    ui -->|Analyse record| analyze
+    analyze -->|log + record + rule findings| openai
+    openai -->|"expected / unexpected,<br/>causes, actions, questions, gaps"| ui
+```
+
 ```
 app/        the web app (Vite + React + TS, Cloudflare Pages Functions)   -> app/README.md
 demo/       five synthetic residents, their records, EXIF-dated photos    -> demo/README.md
