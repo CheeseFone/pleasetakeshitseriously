@@ -239,7 +239,7 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
     <h2 class="rv" style="--i:1">The first sign something is wrong is in the toilet. <em>Nobody is looking.</em></h2>
     <p class="lede rv" style="--i:2">In a nursing home, bowel trouble is the most common thing on the unit and the least-loved line in the chart. The numbers are not subtle.</p>
     <div class="tiles">
-      <div class="tile rv" style="--i:3"><div class="v"><span class="num" data-to="71">0</span><small>%</small></div><div class="k">of nursing-home residents have chronic constipation</div><div class="src">126 US homes, EHR cohort 2016; a 34-home Spanish study found 70.7%</div></div>
+      <div class="tile rv" style="--i:3"><div class="v"><span class="num" data-to="71">0</span><small>%</small></div><div class="k">of nursing-home residents have chronic constipation</div><div class="src">126 US homes, electronic-health-record (EHR) cohort 2016; a 34-home Spanish study found 70.7%</div></div>
       <div class="tile rv warn" style="--i:4"><div class="v"><span class="num" data-to="47">0</span><small>%</small></div><div class="k">report having had a fecal impaction</div><div class="src">Nation-wide nursing-home study, Spain</div></div>
       <div class="tile rv" style="--i:5"><div class="v"><span class="num" data-to="67">0</span><small>%</small></div><div class="k">are on regular laxatives</div><div class="src">Norwegian interRAI study, 261 residents</div></div>
     </div>
@@ -253,11 +253,11 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
     <p class="kicker rv">Why it matters</p>
     <h2 class="rv" style="--i:1">A hard stool on Monday is a <em>hospital bed</em> on Saturday.</h2>
     <div class="cascade">
-      <div class="cas c1 rv" style="--i:2"><div class="d">Day 1–2</div><h3>Hard stools, straining</h3><p>Bristol type 1–2. A CNA notices. Maybe it gets charted.</p></div>
+      <div class="cas c1 rv" style="--i:2"><div class="d">Day 1–2</div><h3>Hard stools, straining</h3><p>Bristol type 1–2 (the 1–7 stool scale; 1–2 means hard). A CNA, the frontline care aide, notices. Maybe it gets charted.</p></div>
       <div class="cas c2 rv" style="--i:3"><div class="d">Day 3–4</div><h3>Nothing documented</h3><p>Appetite drops, fluids drop. The record has no bowel entry for days.</p></div>
       <div class="cas c3 rv" style="--i:4"><div class="d">Day 4–5</div><h3>Delirium, falls</h3><div class="big"><span class="num" data-to="11">0</span>%</div><p>of delirium on a geriatric ward was attributed to constipation.</p></div>
-      <div class="cas c4 rv" style="--i:5"><div class="d">Day 5–6</div><h3>Dehydration admission</h3><div class="big"><span class="num" data-to="12">0</span>%</div><p>of care-home admissions arrive hypernatraemic vs 1.3% from own homes. 50% more likely to die.</p></div>
-      <div class="cas c5 rv" style="--i:6"><div class="d">Or the other way</div><h3>Loose stools, C. diff</h3><div class="big"><span class="num" data-to="29300" data-sep="1">0</span></div><p>US deaths a year from 453,000 infections. Three in four cases start outside a hospital. ~$21k per case.</p></div>
+      <div class="cas c4 rv" style="--i:5"><div class="d">Day 5–6</div><h3>Dehydration admission</h3><div class="big"><span class="num" data-to="12">0</span>%</div><p>of care-home admissions arrive hypernatraemic (severely dehydrated) vs 1.3% from own homes. 50% more likely to die.</p></div>
+      <div class="cas c5 rv" style="--i:6"><div class="d">Or the other way</div><h3>Loose stools, C. diff</h3><div class="big"><span class="num" data-to="29300" data-sep="1">0</span></div><p>US deaths a year from 453,000 C. diff infections (a gut bug that spreads through care homes). Three in four cases start outside a hospital. ~$21k per case.</p></div>
     </div>
     <p class="small rv" style="--i:7;margin-top:18px">Sources on the last slide. Day numbers are illustrative; the figures are from the cited studies.</p>
   </div>
@@ -274,7 +274,7 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
         <div class="tile rv bad" style="--i:2"><div class="v"><span class="num" data-to="90">0</span><small>%</small></div><div class="k">of US nursing homes are below expected staffing levels</div><div class="src">LTCCC analysis of federal data, Q2 2025</div></div>
         <div class="tile rv warn" style="--i:3"><div class="v"><span class="num" data-to="24">0</span><small>%</small></div><div class="k">average daily nurse-hour shortfall; 31% on weekends</div><div class="src">3.77 h delivered vs 4.95 h expected per resident-day</div></div>
       </div>
-      <blockquote class="quote rv" style="--i:4">"There was no documentation of a bowel movement from April 1–7, 15–22, 25–30 or treatment for constipation."<cite>State survey finding (CMS-2567), Indiana nursing home, 2019. A New York survey found fifteen CNAs had failed to document BMs for one resident.</cite></blockquote>
+      <blockquote class="quote rv" style="--i:4">"There was no documentation of a bowel movement from April 1–7, 15–22, 25–30 or treatment for constipation."<cite>State survey finding (CMS-2567), Indiana nursing home, 2019. A New York survey found fifteen CNAs had failed to document bowel movements (BMs) for one resident.</cite></blockquote>
     </div>
     <div class="rv r" style="--i:3">
       <div class="sheet">
@@ -297,12 +297,12 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
   <div class="wrap">
     <p class="kicker rv">The idea</p>
     <h2 class="rv" style="--i:1">Make the chart <em>fill itself in</em>, then check it against the record.</h2>
-    <p class="lede rv" style="--i:2">One photo replaces the tick-box. The model gives the Bristol type. The rules engine asks the only question that matters: does the record explain this, or not?</p>
+    <p class="lede rv" style="--i:2">One photo replaces the tick-box. The model gives the Bristol type (the 1–7 stool scale). The rules engine asks the only question that matters: does the record explain this, or not?</p>
     <div class="steps">
-      <div class="step rv" style="--i:3"><span class="tag">On device</span><div class="n">1</div><h3>Snap</h3><p>CNA photographs the stool with the unit iPad, or bulk-uploads a few days at once. Time is read from EXIF.</p></div>
-      <div class="step rv" style="--i:4"><span class="tag">~0.8 s</span><div class="n">2</div><h3>Score</h3><p>Two small YOLO segmentation models run in the browser. Bristol group plus exact type. The photo never leaves the device.</p></div>
-      <div class="step rv" style="--i:5"><span class="tag">LLM</span><div class="n">3</div><h3>Read the record</h3><p>Chart, MAR and menu are dropped in. The model structures them into meds, diagnoses, diet, mobility, recent changes.</p></div>
-      <div class="step rv" style="--i:6"><span class="tag">Deterministic</span><div class="n">4</div><h3>Cross-check</h3><p>Rules compare the bowel trend with the record and say <b>expected</b> or <b>unexplained</b>, with the why and next steps.</p></div>
+      <div class="step rv" style="--i:3"><span class="tag">On device</span><div class="n">1</div><h3>Snap</h3><p>CNA photographs the stool with the unit iPad, or bulk-uploads a few days at once. Time is read from the photo's EXIF metadata.</p></div>
+      <div class="step rv" style="--i:4"><span class="tag">~0.8 s</span><div class="n">2</div><h3>Score</h3><p>Two small YOLO vision models (they outline the stool, then classify it) run in the browser. Bristol group plus exact type. The photo never leaves the device.</p></div>
+      <div class="step rv" style="--i:5"><span class="tag">LLM</span><div class="n">3</div><h3>Read the record</h3><p>Chart, MAR (medication record) and menu are dropped in. An LLM structures them into meds, diagnoses, diet, mobility, recent changes.</p></div>
+      <div class="step rv" style="--i:6"><span class="tag">Deterministic</span><div class="n">4</div><h3>Cross-check</h3><p>Plain-code rules, no AI, same answer every time. They compare the bowel trend with the record and say <b>expected</b> or <b>unexplained</b>, with the why and next steps.</p></div>
     </div>
   </div>
 </section>
@@ -339,7 +339,7 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
       <div>
         <p class="kicker rv">Capture</p>
         <h2 class="rv" style="--i:1">Snap. <em>Scored</em> before you put the iPad down.</h2>
-        <p class="lede rv" style="--i:2;font-size:17px">Two YOLO26n-seg models in onnxruntime-web. Bristol group is the headline; the exact type is shown only when the model is confident. Quick-tap flags for blood, straining, missed meals. The nurse can override the type.</p>
+        <p class="lede rv" style="--i:2;font-size:17px">Two YOLO26n-seg models in onnxruntime-web, so the AI runs inside the browser with no server. Bristol group is the headline; the exact type is shown only when the model is confident. Quick-tap flags for blood, straining, missed meals. The nurse can override the type.</p>
         <div class="tiles rv" style="--i:3;grid-template-columns:1fr 1fr;margin-top:24px">
           <div class="tile"><div class="v"><span class="num" data-to="0.8" data-dec="1">0</span><small>s</small></div><div class="k">per photo, on an iPad</div></div>
           <div class="tile"><div class="v"><span class="num" data-to="0">0</span><small>bytes</small></div><div class="k">of photo uploaded</div></div>
@@ -357,7 +357,7 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
       <div>
         <p class="kicker rv">The record</p>
         <h2 class="rv" style="--i:1">Drop in the chart, the MAR, the <em>menu</em>.</h2>
-        <p class="lede rv" style="--i:2;font-size:17px">PDF, pasted text, or a photo of the page. PDFs are parsed on the device; the model structures the text into medications, diagnoses, diet, mobility and recent changes. Strict JSON schema, no free-text guessing.</p>
+        <p class="lede rv" style="--i:2;font-size:17px">PDF, pasted text, or a photo of the page. PDFs are parsed on the device; the model structures the text into medications, diagnoses, diet, mobility and recent changes. Strict JSON schema (the model must fill a fixed form), no free-text guessing.</p>
         <div class="chips rv" style="--i:3"><span class="chip">Chart / history</span><span class="chip">MAR</span><span class="chip">Diet &amp; menu</span><span class="chip">Nursing notes</span></div>
       </div>
       <div class="shotwrap rv s" style="--i:2">
@@ -374,11 +374,11 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
   <div class="wrap">
     <p class="kicker rv">The important one</p>
     <h2 class="rv" style="--i:1;font-size:clamp(28px,3.8vw,50px)">"Constipated, and <em>nothing in the record explains it.</em>"</h2>
-    <p class="lede rv" style="--i:2;font-size:16px;max-width:90ch;margin-top:12px">A deterministic rules engine, not a vibe. Margaret is constipated because of amlodipine, white bread and a knee flare: expected, manage it. Dorothy is constipated on a high-fibre diet, fully mobile, no constipating meds: that one needs a human today. The engine still mines her record for leads.</p>
+    <p class="lede rv" style="--i:2;font-size:16px;max-width:90ch;margin-top:12px">A deterministic rules engine, not a vibe. Margaret is constipated because of amlodipine (a blood-pressure drug that constipates), white bread and a knee flare: expected, manage it. Dorothy is constipated on a high-fibre diet, fully mobile, no constipating meds: that one needs a human today. The engine still mines her record for leads.</p>
     <div class="shotwrap rv s" style="--i:3;margin-top:18px">
       <div class="card"><img src="pitch/unexplained.png" alt="Rule-engine finding: constipation pattern with no documented explanation, why it's flagged and suggested next steps"></div>
       <span class="co red" style="left:18px;top:-14px;transition-delay:1.1s">Unexplained → investigate</span>
-      <span class="co" style="right:18px;bottom:14px;transition-delay:1.4s">OTC calcium not on the MAR. Found in the chart.</span>
+      <span class="co" style="right:18px;bottom:14px;transition-delay:1.4s">Over-the-counter calcium, not on the MAR. Found in the chart.</span>
     </div>
   </div>
 </section>
@@ -413,7 +413,7 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
       <div>
         <p class="kicker rv">Trends</p>
         <h2 class="rv" style="--i:1">The <em>drift</em> is the signal.</h2>
-        <p class="lede rv" style="--i:2;font-size:17px">Normal for two weeks, then a slide into types 1–2 with flags. Entries live in a TimescaleDB hypertable on Tiger Cloud with per-day time-bucket rollups, so the 30-day view is one query per resident.</p>
+        <p class="lede rv" style="--i:2;font-size:17px">Normal for two weeks, then a slide into types 1–2 with flags. Entries live in a TimescaleDB hypertable (a table built for time-stamped data) on Tiger Cloud with per-day rollups, so the 30-day view is one query per resident.</p>
         <div class="chips rv" style="--i:3"><span class="chip">Tiger Cloud · TimescaleDB</span><span class="chip">time_bucket('1 day')</span><span class="chip">iPad · phone · laptop</span></div>
       </div>
     </div>
@@ -426,14 +426,14 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
   <div class="wrap two">
     <div>
       <p class="kicker rv">The models</p>
-      <h2 class="rv" style="--i:1">Two tiny models, trained today, <em>better on real phones</em> than yesterday.</h2>
-      <p class="lede rv" style="--i:2;font-size:17px">YOLO26n-seg at 640 px, exported to ONNX, running in the browser. v4 added 232 crowd-sourced phone photos, pseudo-labelled by v3. Measured on photos never used in training.</p>
+      <h2 class="rv" style="--i:1">Two tiny models, trained this weekend, <em>better on real phones</em> with every pass.</h2>
+      <p class="lede rv" style="--i:2;font-size:17px">YOLO26n-seg at 640 px, exported to ONNX (a portable model format), running in the browser. v4 added 232 crowd-sourced phone photos, pseudo-labelled by v3 (v3 drew the first-pass labels, we checked them). Measured on photos never used in training.</p>
       <div class="chips rv" style="--i:3"><span class="chip"><b>3-group</b> headline model</span><span class="chip"><b>7-type</b> shown only when ≥ 0.6 and inside the group</span><span class="chip">Roboflow · CC BY 4.0</span></div>
     </div>
     <div class="chart rv r" style="--i:2">
       <p class="t">Per-photo accuracy on crowd-sourced phone photos</p>
       <p class="st">73 photos, Bristol-Stool-Boost valid + test, never seen in training. Top detection vs label.</p>
-      <div class="legend"><span><i style="background:var(--s2)"></i>v3 (yesterday)</span><span><i style="background:var(--s1)"></i>v4 (shipped)</span></div>
+      <div class="legend"><span><i style="background:var(--s2)"></i>v3 (before)</span><span><i style="background:var(--s1)"></i>v4 (shipped)</span></div>
       <div class="bars">
         <div class="row"><div class="lab">3-group headline correct</div><div class="trk"><div class="bar s2" style="--w:63%;--d:100ms"><b>63%</b></div><div class="bar s1" style="--w:70%;--d:250ms"><b>70%</b></div></div></div>
         <div class="row"><div class="lab">Exact type correct</div><div class="trk"><div class="bar s2" style="--w:30%;--d:400ms"><b>30%</b></div><div class="bar s1" style="--w:49%;--d:550ms"><b>49%</b></div></div></div>
@@ -498,7 +498,7 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
     <p class="kicker rv">Privacy &amp; safety</p>
     <h2 class="rv" style="--i:1">Built for a room where the data is <em>someone's grandmother</em>.</h2>
     <div class="priv">
-      <div class="tile rv" style="--i:2"><div class="v">0 photos</div><div class="k">leave the device. Inference in the browser; thumbnails stay in that browser's IndexedDB.</div></div>
+      <div class="tile rv" style="--i:2"><div class="v">0 photos</div><div class="k">leave the device. Inference in the browser; thumbnails stay in that browser's local storage (IndexedDB).</div></div>
       <div class="tile rv" style="--i:3"><div class="v">6 fields</div><div class="k">per stool entry reach the server: time, group, type, confidence, flags, note.</div></div>
       <div class="tile rv" style="--i:4"><div class="v">Not a device</div><div class="k">Decision support only. Disclaimer in the footer and settings. Every finding carries its evidence.</div></div>
     </div>
@@ -537,7 +537,7 @@ h2 em,h1 em,.lede em{font-style:italic;color:var(--teal)}
   <div class="wrap">
     <p class="kicker rv">The ask</p>
     <h1 class="rv" style="--i:1">Take shit <em>seriously.</em></h1>
-    <div class="day ok rv" style="--i:2"><div class="dn">Day 2</div><p>A nurse opens the app, sees "unexplained", checks the OTC calcium, fixes the levothyroxine timing.</p></div>
+    <div class="day ok rv" style="--i:2"><div class="dn">Day 2</div><p>A nurse opens the app, sees "unexplained", checks the over-the-counter calcium, fixes the thyroid-pill (levothyroxine) timing.</p></div>
     <div class="vs rv" style="--i:3">INSTEAD OF</div>
     <div class="day bad rv" style="--i:3"><div class="dn">Day 6</div><p>An ambulance, a dehydration admission, and a chart that says nothing for a week.</p></div>
     <div class="cta rv" style="--i:4"><a class="btn p" href="https://pleasetakeshitseriously.photo" target="_blank" rel="noopener">Run the demo</a><a class="btn" href="README.md">README</a><a class="btn" href="docs/DATASET_ATTRIBUTION.md">Dataset attribution</a></div>
